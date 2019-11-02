@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Search with Debouncing</title>
+  </head>
+  <body>
+    <!-- Every time when we keyUp corresponding API will get called. -->
+    <!-- So that will impact the performance -->
+    <!-- to achieve we will debouncing -->
+    <input type="text" onkeyup="betterFunction()" />
+
+    <script type="text/javascript">
+      let count = 0;
+      const getData = () => {
+        //Calls an API
+        console.log("Fetching data.." + count++);
+      };
+
+      const debouncing = (funct, delayTime) => {
+        let timer;
+        return function() {
+          let context = this,
+            args = arguments;
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            funct.apply(context, args);
+          }, delayTime);
+        };
+      };
+      console.dir(debouncing(getData, 300)) // Closure will be in scoping
+
+      const betterFunction = debouncing(getData, 300); // debouncing is a closure
+    </script>
+  </body>
+</html>
