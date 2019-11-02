@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Tangerine"
+    />
+    <style>
+      *{
+          margin:0;
+          padding:0;
+          box-sizing: border-box;
+          font-family: 'Poppins', sans-serif;
+      }
+      section{
+          padding:100px;
+      }
+      section h2{
+          font-size: 4em;
+          color: #4b656d;
+      }
+      section h2 span{
+          display: block;
+          font-size: 0.5em;
+          color: #ff4983;
+      }
+
+      section p{
+          font-size: 1.2em;
+          margin-top:20px;
+      }
+
+      .preloader{
+          position: fixed;
+          top:0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #070707;
+          width:100%;
+          height:100vh;
+          z-index: 100000000;
+      }
+      .preloader.active{
+          transform: translateY(-100vh);
+          transition: ease-in-out 2s;
+          transition-delay: 1s;
+      }
+      .preloader:before{
+          content: 'Loading';
+          position: absolute;
+          font-size: 12em;
+          font-weight: 900;
+          text-transform: uppercase;
+          color:rgba(255,255,255,.03);
+      }
+      .counter{
+          position: relative;
+          color: #fff;
+          font-size: 16em;
+          font-weight: 700;
+          z-index: 1;
+      }
+
+      .counter:after{
+          content: '%';
+          font-size: 0.5em;
+      }
+
+      .counter.hide{
+          opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preloader">
+      <div class="counter">0</div>
+    </div>
+    <section>
+      <h2>Welcome back to all! <span>Stay Tuned for more Video</span></h2>
+      <P
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+        maiores beatae, corrupti aspernatur perspiciatis assumenda sapiente quia
+        veniam explicabo eaque eos praesentium accusantium voluptatem ex
+        temporibus doloribus nulla voluptates minus.</P
+      >
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      function counter(){
+         var count = setInterval(function(){             
+              var c = parseInt($('.counter').text());
+              $('.counter').text((++c).toString());
+              if(c== 100){
+               clearInterval(count);
+               $('.counter').addClass('hide');
+               $('.preloader').addClass('active');
+              }
+
+          },60)
+      }
+      counter()
+    </script>
+  </body>
+</html>
+
