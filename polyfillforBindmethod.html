@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Polyfill for bind method</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      const name = {
+        firstName: "Sateesh",
+        lastName: "Chava"
+      };
+
+      const printFullName = function(place, state, country) {
+        console.log(this.firstName + " " + this.lastName +" From "+place+" ,"+state+" ,"+country);
+      };
+
+      var printMyName = printFullName.bind(name, "Hyderabad" );
+      printMyName("AndhraPradesh","India");
+
+      //PolyFill for bind method. (myBind)
+      //Bind method returns a function, so our wirte a logic for our myBind method returns a function.
+      Function.prototype.myBind = function(...args) {  // Adding myBind mehtod to polyfill
+          // args here like a properties
+          // 1) Object (args[0])
+          // 2) Reamining are other properties
+        let obj = this, params = args.slice(1); // this here is like a calling function, in this case it is printFullName
+        return function(...args2) {
+          obj.apply(args[0], [...params,...args2]);
+        };
+      };
+
+      var printMyName2 = printFullName.myBind(name, "Hyderabad", "AndhraPradesh");
+      printMyName2( "India"); // these will be return function properites
+    </script>
+  </body>
+</html>
