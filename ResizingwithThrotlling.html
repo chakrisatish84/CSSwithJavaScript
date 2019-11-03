@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Throtlling</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    let count=0;
+      const expensive = () => {
+          console.log('Expensive' + count++);
+      };
+
+      const throtling = (func, delayTime) =>{
+         let flag = true; // Closure, Will be called only once (If we keep this inside return for every call this value will get update and it won't be helpful, that is why used closure)
+         return function(){
+             if(flag){
+                 let context=this, args= arguments;
+                 func.apply(context,args);
+                 flag = false;
+                 setTimeout(() => {
+                     flag = true;
+                 }, delayTime);
+             }
+         }
+      }
+
+      console.dir(throtling(expensive, 300));
+      const MakelessExpensive = throtling(expensive, 300);
+
+      window.addEventListener("resize", MakelessExpensive);
+
+     
+    </script>
+  </body>
+</html>

@@ -20,7 +20,7 @@
       };
 
       const debouncing = (funct, delayTime) => {
-        let timer;
+        let timer; // this is Closure
         return function() {
           let context = this,
             args = arguments;
