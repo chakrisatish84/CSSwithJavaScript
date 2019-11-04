@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Flatten Json Recusively</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let user = {
+        name: "Sateesh Chava",
+        address: {
+          personal: {
+            city: "Hyderabad",
+            state: "Andhra Pradesh",
+            area: "Kukatpally"
+          },
+          office: {
+            city: "Hyderabad",
+            area: {
+              landmark: "Hi Tech"
+            }
+          }
+        }
+      };     
+
+     
+
+      let flateenJSON = (obj, parent, finalObj)=>{
+
+        for (const key in obj) {
+           if(typeof obj[key] === "object"){
+            flateenJSON(obj[key],parent+"_"+key, finalObj)
+           }
+           else{
+               finalObj[parent +"_"+key] = obj[key];
+           }
+        }
+
+      }
+
+      let finalObj ={};
+      flateenJSON(user, "user", finalObj);
+
+      console.log(finalObj)
+    </script>
+  </body>
+</html>
