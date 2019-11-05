@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: consolas;
+        height: 4000px;
+      }
+      .container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 400%;
+        height: 100vh;
+        display: flex;
+      }
+      .container .section {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container .section .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container .section .content .text {
+        padding-right: 50px;
+      }
+
+      .container .section .content .text h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 4em;
+      }
+
+      .container .section .content .text p {
+        font-size: 1.1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="section">
+        <div class="content">
+          <div class="text">
+            <h1>Section one</h1>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt
+              libero sit alias reiciendis amet, architecto molestias nesciunt
+              voluptate laboriosam impedit perferendis praesentium cumque sint,
+              atque deleniti nulla, tenetur rerum aspernatur.Earum fuga iste
+              minus at quo deserunt quaerat animi, ad culpa. Illo, quae. Beatae
+              dolore commodi reiciendis nobis soluta tempore omnis vitae quod
+              aspernatur, harum iusto, praesentium at rerum accusantium!
+            </p>
+          </div>
+          <img src="Images/Sample.jpg" />
+        </div>
+      </div>
+      <div class="section">
+        <div class="content">
+          <div class="text">
+            <h1>Section two</h1>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt
+              libero sit alias reiciendis amet, architecto molestias nesciunt
+              voluptate laboriosam impedit perferendis praesentium cumque sint,
+              atque deleniti nulla, tenetur rerum aspernatur.Earum fuga iste
+              minus at quo deserunt quaerat animi, ad culpa. Illo, quae. Beatae
+              dolore commodi reiciendis nobis soluta tempore omnis vitae quod
+              aspernatur, harum iusto, praesentium at rerum accusantium!
+            </p>
+            <img src="Images/Sample.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="content">
+          <div class="text">
+            <h1>Section three</h1>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt
+              libero sit alias reiciendis amet, architecto molestias nesciunt
+              voluptate laboriosam impedit perferendis praesentium cumque sint,
+              atque deleniti nulla, tenetur rerum aspernatur.Earum fuga iste
+              minus at quo deserunt quaerat animi, ad culpa. Illo, quae. Beatae
+              dolore commodi reiciendis nobis soluta tempore omnis vitae quod
+              aspernatur, harum iusto, praesentium at rerum accusantium!
+            </p>
+            <img src="Images/Sample.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="content">
+          <div class="text">
+            <h1>Section four</h1>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt
+              libero sit alias reiciendis amet, architecto molestias nesciunt
+              voluptate laboriosam impedit perferendis praesentium cumque sint,
+              atque deleniti nulla, tenetur rerum aspernatur.Earum fuga iste
+              minus at quo deserunt quaerat animi, ad culpa. Illo, quae. Beatae
+              dolore commodi reiciendis nobis soluta tempore omnis vitae quod
+              aspernatur, harum iusto, praesentium at rerum accusantium!
+            </p>
+            <img src="Images/Sample.jpg" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      $(window).scroll(function() {
+        var scroll = $(window).scrollTop(),
+          dh = $(document).height(),
+          wh = $(window).height();
+        value = (scroll / (dh - wh)) * 100;
+        $('.container').css('left', -value * 3 +'%')
+      });
+    </script>
+  </body>
+</html>
