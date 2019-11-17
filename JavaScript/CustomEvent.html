@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      #number {
+        font-size: 4em;
+        padding-bottom: 10px;
+        border-bottom: 1px solid gray;
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="number">0</h2>
+    <script>
+      const headerElement = document.querySelector("#number");
+
+      headerElement.addEventListener("numberChanged", e => {
+        headerElement.textContent = e.detail.number;
+        headerElement.style.color = e.detail.color;
+      });
+
+      window.document.addEventListener("numberChanged1", e => {
+          debugger;
+        headerElement.textContent = e.detail.number;
+        headerElement.style.color = e.detail.color;
+      });
+
+      const changeNumber = (n, c) => {
+        const event = new CustomEvent("numberChanged", {
+          detail: {
+            number: n,
+            color: c
+          }
+        });
+        headerElement.dispatchEvent(event);
+      };
+
+      //old way
+
+      const changeNumber1 = (n, c) => {        
+        const event = document.createEvent('Event');
+        event.initEvent("numberChanged1", { detail: { number: n, color: c } });
+        window.document.dispatchEvent(event);
+      };
+    </script>
+  </body>
+</html>
