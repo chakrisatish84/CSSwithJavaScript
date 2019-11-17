@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Custom file upload button</title>
+    <style>
+      #custon-file {
+        padding: 10px;
+        background-color: #009578;
+        border-radius: 5px;
+        border: 1px solid #000;
+        font-family: sans-serif;
+        color: white;
+        cursor: pointer;
+      }
+
+      #custon-file hover {
+        background: #00b28f;
+      }
+      #custom-text {
+        margin-left: 10px;
+        font-family: sans-serif;
+        color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" name="" id="real-file" hidden="hidden" />
+    <button id="custon-file">Choose a file</button>
+    <span id="custom-text">No File choosen yet</span>
+
+    <script type="text/javascript">
+      const realFileBtn = document.getElementById("real-file");
+      const customFileBtn = document.getElementById("custon-file");
+      const cusotmText = document.getElementById("custom-text");
+
+      customFileBtn.addEventListener("click", () => {
+        realFileBtn.click();
+      });
+
+      realFileBtn.addEventListener("change", () => {
+        if (realFileBtn.value) {
+          cusotmText.innerHTML = realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+        } else {
+          cusotmText.innerHTML = "No File choosen yet";
+        }
+      });
+    </script>
+  </body>
+</html>
