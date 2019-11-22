@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Change Image Color</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body{
+          overflow: hidden;
+      }
+      #bg {
+        position: absolute;
+        top:0;
+        width: 100vw;
+        height: 100vh;
+        mix-blend-mode: hue;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="../Images/Sample.jpg">
+    <div id="bg"></div>
+    <script type="text/javascript">
+      const bg = document.getElementById("bg");
+      function randomColor() {
+        return Math.floor(Math.random() * 255);
+      }
+      bg.addEventListener('click', () => {
+        bg.style.backgroundColor = 
+          'rgb(' +
+          randomColor() +
+          ',' +
+          randomColor() +
+          ',' +
+          randomColor() +
+          ')';
+      });
+    </script>
+  </body>
+</html>
