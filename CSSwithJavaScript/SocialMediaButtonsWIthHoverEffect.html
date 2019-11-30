@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script defer src="../font-awesome/js/all.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding:0;
+        }
+
+        .container{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100vw;
+          height: 100vh;
+        }
+
+        .container a{
+            text-decoration: none;
+            margin: 20px;
+            width: 50px;
+            height:50px;          
+            color: #fff;;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            position: relative;
+        }   
+
+        .container a:before{
+            content: "";
+            position: absolute;
+            width: 50px;
+            height:50px;
+            background: linear-gradient(45deg, #22a6b3,#30336b);
+            border-radius: 50%;
+            z-index: -1;
+            transition:0.3s ease-in;
+        }    
+
+        .container a:hover::before{
+            transform: scale(0);
+        }
+
+        .container a svg{
+            transition: 0.3s ease-in;
+            color: red
+        }
+
+        .container a:hover svg{
+            background: linear-gradient(45deg, #22a6b3,#30336b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;           
+            transform: scale(2.2);
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href=#><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href=#><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href=#><i class="fab fa-facebook-f"></i></a>
+    </div>
+  </body>
+</html>
