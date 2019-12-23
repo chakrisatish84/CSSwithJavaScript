@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>3D Rotation</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #607d8b;
+      }
+
+      .box{
+          position: absolute;
+          left:calc(50% - 100px);
+          top:calc(50% - 150px);         
+          transform: perspective(1000px) rotateY(-45deg);
+          transform-style: preserve-3d ;
+          height:300px;
+          width:200px;
+          
+      }
+
+      .box div{
+          position:absolute;
+          left:0;
+          top:0;
+          width:100%;
+          height:100%;
+          transform-style: preserve-3d ;
+          animation: animation 5s linear infinite;
+      }
+
+      .box div span{
+          position:absolute;
+          left:0;
+          top:0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(0deg, #f1f1f1, #bbb, #f1f1f1 );
+          border-radius: 20px;
+      }
+
+      .box div span:nth-child(1){
+          transform: rotateX(0deg);
+      }
+      .box div span:nth-child(2){
+          transform: rotateX(45deg);
+      }
+      .box div span:nth-child(3){
+          transform: rotateX(-45deg);
+      }
+      .box div span:nth-child(4){
+          transform: rotateX(90deg);
+      }
+
+      .box::before{
+          content:'';
+          position:absolute;
+          bottom: -100px;
+          left:0;
+          width:100%;
+          height:50px;
+          background: #000;
+          filter: blur(40px);
+          opacity: 0.5;
+          transform: rotateX(90deg);
+      }
+
+      @keyframes animation {
+          0%{
+              transform: perspective(1000px) rotateX(0deg);
+          }
+          100%{
+              transform: perspective(1000px) rotateX(359deg);
+          }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Rotator</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            box-sizing: border-box;
+            font-family: "poppins",sans-serif;
+        }
+        .container{
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #151515;
+        }
+        .container h2{
+            position: relative;
+            font-size: 4em;
+            width:80%;
+            color:#444;
+        }
+
+        .container h2 span{
+            color:#0f0;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text">Be <span style="display: initial;">Bold</span><span>Creative</span><span>Amazing</span><span>Unique</span><span>Unique</span></h2>
+    </div>
+    <script type="text/javascript">
+    var headerText = document.getElementsByClassName("text");
+    var words = document.getElementsByTagName("span");
+
+    var i=0;
+    function rotator(){
+       words[i].style.display = 'none';
+       i = (i+1) % words.length;
+
+       words[i].style.display='initial';
+    }
+    setInterval(rotator, 800);
+    </script>
+</body>
+</html>
