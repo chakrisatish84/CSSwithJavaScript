@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        overflow: hidden;
+        height: 100vh;
+      }
+      span{
+          position: absolute;          
+          border-radius: 50%;
+          background-image: url('/Images/Sample.jpg');
+          background-size: cover;
+          pointer-events: none;
+          transform: translate(-50%,-50%);
+          animation: animate 4s linear infinite;
+      }
+      @keyframes animation {
+          0%{
+            transform: translate(-50%,-50%);
+            opacity: 1;
+          }
+         100%{
+            transform: translate(-50%,-1000%);
+            opacity: 0;
+          }
+          
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      document.addEventListener("mousemove", function(e) {
+        const bodyElement = document.querySelector("body");
+        const spanElement = document.createElement("span");
+        const x = e.offsetX;
+        const y = e.offsetY;
+
+        spanElement.style.left = x + "px";
+        spanElement.style.top = y + "px";
+        const size = Math.random()*100;
+        spanElement.style.width = size+ "px";
+        spanElement.style.height = size + "px";
+        bodyElement.appendChild(spanElement);
+
+        setTimeout(() => {
+           spanElement.remove()
+        }, 4000);
+      });
+    </script>
+  </body>
+</html>
