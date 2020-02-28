@@ -1,7 +1,6 @@
 import { ITransactionItems } from "./globalContext"
 
 export default (state: any, action: any) => {
-    debugger;
     switch (action.type) {
 
         case 'DELETE_TRANSACTION':
