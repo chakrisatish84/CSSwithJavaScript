@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Poppins"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #bedfe8;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 800px;
+      }
+      .section {
+        position: relative;
+        margin: 10px 20px;
+      }
+
+      .title {
+        position: relative;
+        padding: 10px;
+        background-color: #2694af;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      .title::before {
+        position: absolute;
+        content: "+";
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+      }
+      .description {
+        background-color: #fff;
+        font-size: 1.5rem;
+        height: 0;
+        overflow: hidden;
+        overflow-y: auto;
+        transition: 0.5s;
+      }
+      .section.active .description {
+        padding: 10px;
+        height: 150px;
+      }
+
+      .section.active .title::before {
+        content: "-";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="section">
+        <div class="title">List One</div>
+        <div class="description">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate
+            quo eveniet accusantium sint voluptate, deleniti optio quisquam ad
+            distinctio sit suscipit veritatis itaque accusamus labore, provident
+            ipsum illo cum quos?
+          </p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="title">List Two</div>
+        <div class="description">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate
+            quo eveniet accusantium sint voluptate, deleniti optio quisquam ad
+            distinctio sit suscipit veritatis itaque accusamus labore, provident
+            ipsum illo cum quos?
+          </p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="title">List Three</div>
+        <div class="description">
+          <div>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Cupiditate quo eveniet accusantium sint voluptate, deleniti optio
+              quisquam ad distinctio sit suscipit veritatis itaque accusamus
+              labore, provident ipsum illo cum quos?
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="title">List Four</div>
+        <div class="description">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate
+            quo eveniet accusantium sint voluptate, deleniti optio quisquam ad
+            distinctio sit suscipit veritatis itaque accusamus labore, provident
+            ipsum illo cum quos?
+          </p>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var accordionSection = document.querySelectorAll(".section");
+      for (var section in accordionSection) {
+        accordionSection[section].addEventListener("click", function () {
+          this.classList.toggle("active");
+        });
+      }
+    </script>
+  </body>
+</html>
