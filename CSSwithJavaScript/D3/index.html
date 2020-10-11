@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v6.js" defer></script>
+    <script src="https://d3js.org/d3-scale.v3.min.js" defer></script>
+    <script src="https://d3js.org/d3-axis.v2.min.js"></script>
+    <script src="./d3.js" defer></script>
+    <style>
+      .container {
+        width: 250px;
+        height: 200px;
+        border: 1px solid #720570;
+      }
+      .bar {
+        fill: #720570;
+      }
+      html {
+        font-family: sans-serif;
+      }
+
+      ul {
+        list-style: none;
+        margin: 3rem auto;
+        padding: 1rem;
+      }
+
+      li {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+        margin: 1rem 0;
+        padding: 0.5rem;
+      }
+
+      .added {
+        background-color: greenyellow;
+      }
+      .redundant {
+        background-color: lightcoral;
+      }
+      .updated {
+        background-color: orange;
+      }
+
+      .bar1 {
+        fill: #4f009e;
+      }
+
+      .label {
+        fill: #4f009e;
+      }
+
+      #app {
+        display: flex;
+        margin: 2rem 1rem;
+      }
+      #chart {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+        padding: 1rem;
+      }
+
+      #chart,
+      #data {
+        margin: 0 2rem;
+      }
+
+      #data ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      #data li{
+        margin-bottom: 1rem;
+        padding: 1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+        width: 10rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>1.Startup</h2>
+    <svg>
+      <!-- <rect class="bar" style="width: 100px;height:100px"></rect> -->
+    </svg>
+
+    <h2>2. Data Binding</h2>
+    <div>
+      <ul></ul>
+    </div>
+
+    <h2>3. Building interactive chart</h2>
+    <div id="app">
+      <div id="chart">
+        <svg></svg>
+      </div>
+      <div id="data">
+        <ul></ul>
+      </div>
+    </div>
+
+    
+  </body>
+</html>
