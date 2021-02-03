@@ -60,30 +60,34 @@ export const ConversationsProivder = ({ id, children }: ConversationsProps) => {
 
   const formattedConversations: ConversationsModel[] = conversations.map(
     (conversation: ConversationsModel, index: number) => {
-      const recepients = !!conversation && conversation.recepients.map(
-        (recepient: ContactModel) => {
+      const recepients =
+        !!conversation &&
+        conversation.recepients.map((recepient: ContactModel) => {
           const contact = contacts.find((contact: ContactModel) => {
             return contact.id == recepient.id;
           });
           const name = (contact && contact.name) || recepient;
           return { id: recepient.id, name };
-        }
-      );
-      const messages = !!conversation && conversation.messages.map((message: MessageModel) => {
-        const contact = contacts.find((contact: ContactModel) => {
-          return contact.id == message.sender;
         });
-        const name = (contact && contact.name) || message.sender;
-        const fromMe = id === message.sender;
-        return { ...message, fromMe: fromMe, senderName: name };
-      });
+      const messages =
+        !!conversation &&
+        conversation.messages.map((message: MessageModel) => {
+          const contact = contacts.find((contact: ContactModel) => {
+            return contact.id == message.sender;
+          });
+          const name = (contact && contact.name) || message.sender;
+          const fromMe = id === message.sender;
+          return { ...message, fromMe: fromMe, senderName: name };
+        });
       const selected = index === selectedConversationIdex;
       return { ...conversation, messages, recepients, selected };
     }
   );
 
   const sendMessage = (sendMessageModel: SendMessageModel) => {
-    socket?.emit("send-message", sendMessageModel);
+    if (socket) {
+      socket.emit("send-message", sendMessageModel);
+    }
 
     addMessageToConversation(sendMessageModel, id);
   };
