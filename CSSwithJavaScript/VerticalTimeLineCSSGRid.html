@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #009578;
+        }
+        .time_line{
+          position:relative;
+          width: 750px;
+          margin: 0 auto;
+          padding:25px;
+          display: grid;
+          grid-template-columns: 1fr 3px 1fr;
+          font-family: 'Fira sans', sans-serif;
+          color: #fff;
+        }
+        .time_line_component{
+            margin: 0 20px 20px 20px;
+        }
+     
+        .time_line_right{
+            text-align: right;
+        }
+        .time_line_middle{
+            position: relative;
+            background-color: #fff;
+        }
+        .time_line_middle_pointer{
+            position: absolute;
+            top:0;
+            left:50%;
+            width: 15px;
+            height: 15px;
+            background-color: inherit;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+        .time_line_middle_bottom{
+            top:initial;
+            bottom: 0;
+        }
+        .time_line_bg{
+            padding: 1.5em;
+            background-color: rgba(255,255,255,0.2);
+            box-shadow: 0 0 5px rgbs(0,0,0,.2);
+            border-radius: 10px;
+        }
+        .time_line_ttile{
+            margin: 0;
+            font-weight: bold;
+            font-size: 1.15em;
+        }
+
+        .time_line_Paragraph{
+          line-height: 1.5;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="time_line">
+        <div class="time_line_component">
+            <div class="time_line_date time_line_right">
+                <span>Dec 4, 1984</span>
+            </div>
+        </div>
+        <div class="time_line_middle">
+           <div class="time_line_middle_pointer"></div>
+        </div>
+        <div class="time_line_component time_line_bg">
+            <h2 class="time_line_ttile">Welcone Sateesh</h2>
+            <p class="time_line_Paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt exercitationem dolorem, illum modi culpa quaerat soluta deserunt quasi iusto sunt ducimus totam animi expedita commodi ex aliquid facere doloribus nostrum!</p>
+        </div>
+        <div class="time_line_component time_line_bg">
+            <h2 class="time_line_ttile">Welcone Sateesh</h2>
+            <p class="time_line_Paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt exercitationem dolorem, illum modi culpa quaerat soluta deserunt quasi iusto sunt ducimus totam animi expedita commodi ex aliquid facere doloribus nostrum!</p>
+        </div>      
+        <div class="time_line_middle">
+           <div class="time_line_middle_pointer"></div>
+           <div class="time_line_middle_pointer time_line_middle_bottom"></div>
+        </div>
+        <div class="time_line_component">
+            <div class="time_line_date">
+                <span>Dec 4, 1984</span>
+            </div>
+        </div>
+       
+    </div>
+</body>
+</html>
