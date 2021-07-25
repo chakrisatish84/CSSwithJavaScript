@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Credit card design and payment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: consolas;
+      }
+      body {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: linear-gradient(#73c1ff, #fff);
+      }
+      .container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: 0.5s;
+        transform: translateY(-63px);
+      }
+      .container:hover {
+        padding: 40px;
+        transform: translateY(0);
+      }
+      .bg {
+        position: absolute;
+        background: linear-gradient(225deg, #2196f3, #ff4efd);
+        height: 70%;
+        width: 100%;
+        bottom: 0;
+        border-radius: 25px;
+      }
+      .card {
+        position: relative;
+        height: 300;
+        width: 500px;
+        background-color: #fcfcfc;
+        border-radius: 10px;
+        padding: 40px;
+        box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5);
+        z-index: 1;
+        overflow: hidden;
+        transform: translateY(127px);
+        transition: 0.5s;
+      }
+      .container:hover .card {
+        transform: translateY(0);
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.05),
+          transparent
+        );
+        border-radius: 50%;
+        top: -50%;
+        left: -30%;
+        pointer-events: none;
+      }
+      .card .chip {
+        position: absolute;
+        max-width: 70px;
+      }
+      .card .logo {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background-color: #ea222c;
+        top: 130px;
+        right: 40px;
+        border-radius: 50%;
+        box-shadow: -40px 0 0 rgba(255, 164, 36, 0.5);
+      }
+      .bankName {
+        color: #999;
+        text-align: end;
+        outline: none;
+        width: 100%;
+        font-size: 1.5em;
+      }
+      form {
+        margin-top: 45px;
+      }
+      .inputbox {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+      .inputbox span {
+        color: #089cff;
+      }
+      .inputbox input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-size: 1.1rem;
+        font-family: "Share Tech Mono", monospace;
+      }
+      .group {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .inputbox:last-child {
+        max-width: 60px;
+      }
+      .btn {
+        position: relative;
+        margin-top: 40px;
+        padding: 15px 20px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background: #fff;
+        color: #333;
+        font-size: 1.5em;
+        cursor: pointer;
+        box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="bg"></div>
+      <div class="card">
+        <img class="chip" src="../Images/chip.png" alt="Chip image" />
+        <div class="logo"></div>
+        <h2 class="bankName" contenteditable="true">Bank Name</h2>
+        <form>
+          <div class="inputbox">
+            <span>Card No</span>
+            <input
+              type="text"
+              placeholder="1234 5678 9125 1425"
+              maxlength="19"
+            />
+          </div>
+          <div class="inputbox">
+            <span>Card Holder</span>
+            <input type="text" placeholder="Sateesh Chava" />
+          </div>
+          <div class="group">
+            <div class="inputbox">
+              <span>Valid through</span>
+              <input type="text" placeholder="MM/YY" />
+            </div>
+            <div class="inputbox">
+              <span>CVV</span>
+              <input type="text" placeholder="***" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <button class="btn">Confirm and Pay</button>
+    </div>
+  </body>
+</html>
