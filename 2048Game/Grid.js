@@ -22,8 +22,8 @@ export default class Grid {
     console.log(this.#cells);
   }
 
-  get cells(){
-      return this.#cells;
+  get cells() {
+    return this.#cells;
   }
   get cellsByColumn() {
     return this.#cells.reduce((cellGrid, cell) => {
@@ -41,12 +41,27 @@ export default class Grid {
     }, []);
   }
 
-  get #emptyCells() {
+  get emptyCells() {
     return this.#cells.filter((cell) => cell.tile == null);
   }
 
   randomEmptyCells() {
-    const randomIndex = Math.floor(Math.random() * this.#emptyCells.length);
+    // const randomIndex = Math.floor(Math.random() * this.emptyCells.length);
+    // return this.#cells[randomIndex];
+    const emptyCellsLength = this.emptyCells.length;
+    let randomIndex = Math.floor(Math.random() * emptyCellsLength);
+    let foudnCorrectIndex = false;
+    while (!foudnCorrectIndex || emptyCellsLength == 0) {
+      if (
+        this.#cells[randomIndex].tile != null ||
+        this.#cells[randomIndex].tile != undefined
+      ) {
+        foudnCorrectIndex = false;
+        randomIndex = Math.floor(Math.random() * this.#cells.length);
+      } else {
+        foudnCorrectIndex = true;
+      }
+    }
     return this.#cells[randomIndex];
   }
 }

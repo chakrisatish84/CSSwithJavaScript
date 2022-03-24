@@ -1,0 +1,62 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.788);
+}
+
+.board {
+  /* --grid-size: 4;
+  --cell-size: 20vmin;
+  --cell-gap: 2vmin; */
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), var(--cell-size));
+  grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+  gap: var(--cell-gap);
+  background-color: #ccc;
+  padding: var(--cell-gap);
+  font-size: 7.5vmin;
+}
+
+.cell {
+  background-color: #aaa;
+  border-radius: 1vmin;
+}
+
+.tile {    
+  /* --x: 3;
+  --y: 2;
+  --background-lightness: 90%;
+  --text-lightness: 20%; */
+  position: absolute;
+  height: var(--cell-size);
+  width: var(--cell-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  left: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  border-radius: 1vmin;
+  background-color: hsl(200, 50%, var(--background-lightness));
+  color: hsl(200, 50%, var(--text-lightness));
+  transition: 100ms ease-in-out;
+  animation: show 200ms ease-in-out;
+}
+
+@keyframes show {
+    0%{
+        opacity: 0.5;
+        transform: scale(0);
+    }
+}

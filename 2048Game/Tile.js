@@ -14,6 +14,7 @@ export default class Tile {
     return this.#value;
   }
 
+
   set value(v) {
     this.#value = v;
     this.#tileElement.textContent = v;
@@ -43,8 +44,8 @@ export default class Tile {
     this.#tileElement.remove();
   }
   waitForTranisition(animation = false) {
-    return new Promise((resovlve) => {
-      this.#tileElement.addEventListener(animation? "animationend" : "transitionend", resovlve, {
+    return new Promise((resolve) => {
+      this.#tileElement.addEventListener(animation? "animationend" : "transitionend", resolve, {
         once: true,
       });
     });
