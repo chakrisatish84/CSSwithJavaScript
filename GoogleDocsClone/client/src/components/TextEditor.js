@@ -70,10 +70,10 @@ export const TextEditor = () => {
 
     const interval = setInterval(() => {
       socket.emit("save-document", quill.getContents());
-    },SAVE_INTERVAL_MS);
-    return()=>{
-        clearInterval(interval);
-    }
+    }, SAVE_INTERVAL_MS);
+    return () => {
+      clearInterval(interval);
+    };
   }, [socket, quill]);
 
   const wrapperRef = useCallback((wrapper) => {
