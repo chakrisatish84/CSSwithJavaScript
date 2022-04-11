@@ -23,7 +23,7 @@ function readJsonFiles() {
         })
       ).then((data) => {
         targetWords = data[0];
-        dictionaryWords = data[0];
+        dictionaryWords = data[1];
         targetWord = targetWords[Math.floor(dayOfffset)];
         startInteraction();
       });
