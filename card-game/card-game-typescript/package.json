@@ -1,5 +1,15 @@
 {
   "dependencies": {
     "typescript": "^4.6.4"
-  }
+  },
+  "name": "card-game-typescript",
+  "description": "npm install typescript - It will create package.json file",
+  "version": "1.0.0",
+  "main": "scripts.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }

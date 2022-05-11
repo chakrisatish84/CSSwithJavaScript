@@ -16,3 +16,6 @@ tsc - w (it will watch your local changes)
  # Got this error while compiling, uncaught referenceerror exports is not defined
  # to fix this, commented this line.
  // "module": "commonjs", 
+
+ # got an error tsc is not recognzed command.
+npx tsc -w
