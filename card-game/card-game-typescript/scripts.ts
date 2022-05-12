@@ -19,32 +19,32 @@ deck.shuffleCards();
 let computerDeck: Deck, playerDeck: Deck, inRound: boolean, stop: boolean;
 
 const CARD_VALUE_MAP: Map<string, number> = new Map<string, number>([
-  ["2", 2],
-  ["3", 3],
-  ["4", 4],
-  ["5", 5],
-  ["6", 6],
-  ["7", 7],
-  ["8", 8],
-  ["9", 9],
-  ["10", 10],
-  ["J", 11],
-  ["Q", 2],
-  ["K", 2],
-  ["A", 2],
-  // "3": 3,
-  // "4": 4,
-  // "5": 5,
-  // "6": 6,
-  // "7": 7,
-  // "8": 8,
-  // "9": 9,
-  // "10": 10,
-  // J: 11,
-  // Q: 12,
-  // K: 13,
-  // A: 14,
-]);
+    ["2", 2],
+    ["3", 3],
+    ["4", 4],
+    ["5", 5],
+    ["6", 6],
+    ["7", 7],
+    ["8", 8],
+    ["9", 9],
+    ["10", 10],
+    ["J", 11],
+    ["Q", 2],
+    ["K", 2],
+    ["A", 2],
+    // "3": 3,
+    // "4": 4,
+    // "5": 5,
+    // "6": 6,
+    // "7": 7,
+    // "8": 8,
+    // "9": 9,
+    // "10": 10,
+    // J: 11,
+    // Q: 12,
+    // K: 13,
+    // A: 14,
+  ]);
 
 document.addEventListener("click", () => {
   if (stop) {
@@ -119,19 +119,23 @@ function updateDeckCount() {
     computerDeckElement.innerText = computerDeck.numberOfCards.toString();
 }
 
-function isRoundWinner(
+const isRoundWinner = (
   playerCard: Card | undefined,
   computerCard: Card | undefined
-) {
-  if (playerCard && computerCard) {
-    if (CARD_VALUE_MAP) {
-      return (
-        CARD_VALUE_MAP.get(playerCard.value) >
-        CARD_VALUE_MAP.get(computerCard.value)
-      );
-    }
+): boolean => {
+  if (
+    playerCard !== undefined &&
+    computerCard !== undefined &&
+    CARD_VALUE_MAP !== undefined
+  ) {
+    return (
+      CARD_VALUE_MAP?.get(playerCard?.value) >
+      CARD_VALUE_MAP?.get(computerCard?.value)
+    );
   }
-}
+
+  return true;
+};
 function isGameOver(deck: Deck) {
   return deck.numberOfCards === 0;
 }

@@ -7,21 +7,33 @@ const text = document.querySelector(".text");
 var deck = new Deck();
 deck.shuffleCards();
 let computerDeck, playerDeck, inRound, stop;
-const CARD_VALUE_MAP = {
-    "2": 2,
-    "3": 3,
-    "4": 4,
-    "5": 5,
-    "6": 6,
-    "7": 7,
-    "8": 8,
-    "9": 9,
-    "10": 10,
-    J: 11,
-    Q: 12,
-    K: 13,
-    A: 14,
-};
+const CARD_VALUE_MAP = new Map([
+    ["2", 2],
+    ["3", 3],
+    ["4", 4],
+    ["5", 5],
+    ["6", 6],
+    ["7", 7],
+    ["8", 8],
+    ["9", 9],
+    ["10", 10],
+    ["J", 11],
+    ["Q", 2],
+    ["K", 2],
+    ["A", 2],
+    // "3": 3,
+    // "4": 4,
+    // "5": 5,
+    // "6": 6,
+    // "7": 7,
+    // "8": 8,
+    // "9": 9,
+    // "10": 10,
+    // J: 11,
+    // Q: 12,
+    // K: 13,
+    // A: 14,
+]);
 document.addEventListener("click", () => {
     if (stop) {
         startGame();
@@ -93,11 +105,15 @@ function updateDeckCount() {
     if (computerDeckElement)
         computerDeckElement.innerText = computerDeck.numberOfCards.toString();
 }
-function isRoundWinner(playerCard, computerCard) {
-    if (playerCard && computerCard) {
-        return (CARD_VALUE_MAP[playerCard.value] > CARD_VALUE_MAP[computerCard.value]);
+const isRoundWinner = (playerCard, computerCard) => {
+    if (playerCard !== undefined &&
+        computerCard !== undefined &&
+        CARD_VALUE_MAP !== undefined) {
+        return ((CARD_VALUE_MAP === null || CARD_VALUE_MAP === void 0 ? void 0 : CARD_VALUE_MAP.get(playerCard === null || playerCard === void 0 ? void 0 : playerCard.value)) >
+            (CARD_VALUE_MAP === null || CARD_VALUE_MAP === void 0 ? void 0 : CARD_VALUE_MAP.get(computerCard === null || computerCard === void 0 ? void 0 : computerCard.value)));
     }
-}
+    return true;
+};
 function isGameOver(deck) {
     return deck.numberOfCards === 0;
 }
