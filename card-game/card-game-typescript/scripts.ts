@@ -129,8 +129,8 @@ const isRoundWinner = (
     CARD_VALUE_MAP !== undefined
   ) {
     return (
-      CARD_VALUE_MAP?.get(playerCard?.value) >
-      CARD_VALUE_MAP?.get(computerCard?.value)
+      CARD_VALUE_MAP?.get(playerCard?.value)! >
+      CARD_VALUE_MAP?.get(computerCard?.value)!
     );
   }
 
