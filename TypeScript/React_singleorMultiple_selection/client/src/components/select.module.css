@@ -1,0 +1,113 @@
+.container {
+    position: relative;
+    width: 15em;
+    min-height: 1.5em;
+    border: 0.1em solid #777;
+    border-radius: 0.25em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em;
+    outline: none;
+}
+
+.container:focus {
+    border-color: hsl(200, 100%, 50%);
+}
+
+.value {
+    flex-grow: 1;
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+
+.close_button {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.5em;
+    color: #777;
+    cursor: pointer;
+    padding: 0;
+    /* margin-right: 10px; */
+}
+
+.separator {
+    align-self: stretch;
+    width: 0.05em;
+    background-color: #777;
+}
+
+.carrot {
+    border: 0.35em solid transparent;
+    border-top-color: #777;
+    translate: 0 25%;
+}
+
+.options {
+    /* display: none; */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-height: 15em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    top: calc(100% + 0.25em);
+    left: 0px;
+    border: 0.1em solid #777;
+    border-radius: 0.25em;
+    background-color: white;
+    z-index: 100;
+    display: none;
+}
+
+.options.show {
+    display: block;
+}
+
+.options li {
+    display: flex;
+    padding: 0.25em 0.5em;
+    cursor: pointer;
+}
+
+.option.selected {
+    background-color: hsl(200, 100%, 70%);
+}
+
+.option.highlighted {
+    background-color: hsl(200, 100%, 50%);
+    color: white;
+}
+
+.options-badge {
+    display: flex;
+    align-items: center;
+    border: 0.05em solid #777;
+    border-radius: .25em;
+    padding: .15em .25em;
+    gap: .25em;
+    cursor: pointer;
+    background: none;
+    outline: none;
+}
+
+.options-badge:hover,
+.options-badge:focus {
+    background-color: hsl(0, 100%, 90%);
+    border-color: hsl(0, 100%, 50%);
+}
+
+.options-badge:hover>.remove-btn,
+.options-badge:focus>.remove-btn {
+    color: hsl(0, 100%, 50%);
+}
+
+
+.options-badge>.remove-btn {
+    font-size: 1.25em;
+    color: #777;
+}
