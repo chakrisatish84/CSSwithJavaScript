@@ -1,12 +1,15 @@
+import { useTranslation } from 'react-i18next'
+
 type HangManResultProps = {
     isLoser: boolean
     isWinner: boolean
 }
 export const HangManResult = ({ isLoser, isWinner }: HangManResultProps) => {
+    const { t } = useTranslation();
     return (
         <div>
-            {isWinner && "Winner! - Refresh to try again"}
-            {isLoser && "Nice Try - Refresh to try again"}
+            {isWinner && t('winnerMessage')}
+            {isLoser && t('LostMessage')}
         </div>
     )
 }

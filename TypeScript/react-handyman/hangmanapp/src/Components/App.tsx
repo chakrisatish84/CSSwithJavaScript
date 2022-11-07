@@ -31,7 +31,7 @@ function App(props: any) {
     const handler = (e: KeyboardEvent) => {
       const key = e.key;
 
-      if (!key.match(/^[a-z]$/)) return
+      if (!key.match(/^[a-z]$/) || isWinner || isLoser) return
 
       addGuessLetter(key);
     }
