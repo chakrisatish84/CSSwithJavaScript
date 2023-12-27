@@ -1,0 +1,133 @@
+.root {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.img-slider-img {
+    /* object-fit: cover; */
+    width: 100%;
+    height: 100%;
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+}
+
+.img-slider-btn {
+    all: unset;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background-color 100ms ease-in-out;
+}
+
+.img-slider-btn>* {
+    stroke: black;
+    width: 2rem;
+    height: 2rem;
+}
+
+.img-slider-btn:nth-child(2) {
+    left: 0;
+}
+
+.img-slider-btn:nth-child(3) {
+    right: 0;
+}
+
+.img-slider-btn:hover,
+.img-slider-btn:focus-visible {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+
+.imagesRoot {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+}
+
+@keyframes squish {
+    50% {
+        scale: 1.4 0.6;
+    }
+}
+
+.img-slider-dot-btn-root {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    translate: -50%;
+    display: flex;
+    gap: 1.2rem;
+}
+
+.img-slider-dot-btn {
+    all: unset;
+    display: block;
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    transition: scale 100mx ease-in-out;
+}
+
+.img-slider-dot-btn:hover,
+.img-slider-dot-btn:focus-visible {
+    scale: 1.2;
+}
+
+.img-slider-dot-btn>* {
+    stroke: white;
+    fill: black;
+    height: 100%;
+    width: 100%;
+}
+
+.img-slider-dot-btn:focus-visible,
+.img-slider-btn:focus-visible {
+    outline: auto;
+}
+
+.skiptoMainContent {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+}
+
+.skiptoMainContent:focus-visible {
+    top: 0;
+    left: 0;
+    border: 1px solid black;
+    background-color: white;
+    padding: 0.5rem;
+    width: auto;
+    height: auto;
+    margin: 0;
+    clip: unset;
+    text-decoration: none;
+    color: black;
+    z-index: 100
+}
+
+
+/* Some people don't like animations, and we are having an option to removed animation, Just definin aninations in media query */
+@media not (prefers-reduced-motion) {
+    .img-slider-btn {
+        transition: translate 300ms ease-in-out;
+    }
+
+    .img-slider-btn:hover,
+    .img-slider-btn:focus-visible>* {
+        animation: squish 200ms ease-in-out;
+    }
+}
